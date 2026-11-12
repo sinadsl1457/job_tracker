@@ -46,3 +46,7 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# 실제 접속 정보
+env/*.json
+!env/*.example.json
