@@ -31,7 +31,7 @@ docs/         LEARNING.md, AI_LOG.md
 
 ## Flutter (apps/mobile)
 - 개인 프로젝트라 이전 Flutter 버전 호환 확인은 하지 않는다. 설치된 stable로 개발하고 README에는 실제로 쓴 버전만 적는다.
-- Riverpod 3 + `@riverpod` 코드 생성, go_router(`core/router/app_router.dart` 한 파일), freezed 3 + json_serializable.
+- Riverpod 3 + `@riverpod` 코드 생성, go_router(`core/router/app_router.dart` 한 파일), freezed 4 + json_serializable.
 - 서버 통신은 `supabase_flutter`만(dio 없음). Supabase 호출은 저장소 클래스 안에만 두고, Notifier·화면은 Supabase를 모른다.
 - 폴더: `lib/core/{storage,analytics,time,router,presentation}`, `lib/features/<기능>/{data,presentation}`.
   - `auth`: 로그인 상태, 앱 전체 수명.
