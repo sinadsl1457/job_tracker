@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/error/app_failure.dart';
 import '../../../core/presentation/async_views.dart';
@@ -41,6 +42,11 @@ class PostingsScreen extends ConsumerWidget {
             onPressed: () => _signOut(context, ref),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: '공고 등록',
+        onPressed: () => context.push('${PostingsScreen.path}/new'),
+        child: const Icon(Icons.add),
       ),
       body: postings.when(
         skipLoadingOnRefresh: false,
