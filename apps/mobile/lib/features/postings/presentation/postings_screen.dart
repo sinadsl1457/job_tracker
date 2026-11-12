@@ -9,6 +9,7 @@ import '../../auth/data/auth_providers.dart';
 import '../data/job_posting.dart';
 import '../data/posting_enums.dart';
 import '../data/posting_providers.dart';
+import 'funnel_summary.dart';
 import 'postings_filter.dart';
 import 'postings_filter_notifier.dart';
 import 'stage_chip.dart';
@@ -56,7 +57,10 @@ class PostingsScreen extends ConsumerWidget {
           onRetry: () => ref.invalidate(postingsProvider),
         ),
         data: (all) => RefreshIndicator(
-          onRefresh: () => ref.refresh(postingsProvider.future),
+          onRefresh: () => Future.wait([
+            ref.refresh(postingsProvider.future),
+            ref.refresh(allStageEventsProvider.future),
+          ]),
           child: _PostingsList(all: all),
         ),
       ),
@@ -78,6 +82,7 @@ class _PostingsList extends ConsumerWidget {
     return CustomScrollView(
       physics: const AlwaysScrollableScrollPhysics(),
       slivers: [
+        const SliverToBoxAdapter(child: FunnelSummary()),
         const SliverToBoxAdapter(child: _FilterBar()),
         if (all.isEmpty)
           const SliverFillRemaining(
