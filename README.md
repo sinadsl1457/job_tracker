@@ -7,7 +7,7 @@
 ## 필요 환경
 | 도구 | 버전 |
 |---|---|
-| Flutter | 3.38 이상 (`sdk: ^3.10.0`), 확인된 최소 버전은 2단계 후 기록 |
+| Flutter | 3.47 (개발에 쓴 버전) |
 | Node | 24 LTS (3단계부터) |
 | Supabase CLI | 3.x |
 | Docker 실행기 | OrbStack / Docker Desktop / Colima 중 하나 |

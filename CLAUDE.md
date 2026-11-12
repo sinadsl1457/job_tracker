@@ -30,8 +30,7 @@ docs/         LEARNING.md, AI_LOG.md
   - 주간 추이 = 처음 `applied`가 된 날짜의 주
 
 ## Flutter (apps/mobile)
-- 최소 버전: Flutter 3.38 / `sdk: ^3.10.0`. 패키지는 추가할 때마다 3.38에서 `pub get`이 되는지 확인한다.
-  - 그래서 flutter_riverpod 3.1 / riverpod_annotation 4.0.0~ / riverpod_generator 4.0.0 (4.0.3+는 Dart 3.12 필요).
+- 개인 프로젝트라 이전 Flutter 버전 호환 확인은 하지 않는다. 설치된 stable로 개발하고 README에는 실제로 쓴 버전만 적는다.
 - Riverpod 3 + `@riverpod` 코드 생성, go_router(`core/router/app_router.dart` 한 파일), freezed 3 + json_serializable.
 - 서버 통신은 `supabase_flutter`만(dio 없음). Supabase 호출은 저장소 클래스 안에만 두고, Notifier·화면은 Supabase를 모른다.
 - 폴더: `lib/core/{storage,analytics,time,router,presentation}`, `lib/features/<기능>/{data,presentation}`.
