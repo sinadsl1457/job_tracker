@@ -1,0 +1,14 @@
+# 비밀값
+.env
+.env.*
+!.env.example
+
+# OS·에디터
+.DS_Store
+.idea/
+.vscode/
+
+# 웹 (3단계)
+node_modules/
+.next/
+.vercel/
