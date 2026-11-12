@@ -33,9 +33,14 @@ docs/         LEARNING.md, AI_LOG.md
 - 개인 프로젝트라 이전 Flutter 버전 호환 확인은 하지 않는다. 설치된 stable로 개발하고 README에는 실제로 쓴 버전만 적는다.
 - Riverpod 3 + `@riverpod` 코드 생성, go_router(`core/router/app_router.dart` 한 파일), freezed 4 + json_serializable.
 - 서버 통신은 `supabase_flutter`만(dio 없음). Supabase 호출은 저장소 클래스 안에만 두고, Notifier·화면은 Supabase를 모른다.
+  - 저장소는 예외를 `AppFailure`(연결 실패 / 서버 오류 / 없음 / 날짜 거부)로 바꿔 던진다.
+  - postgrest `order()`는 기본이 내림차순 → 항상 `ascending:`을 적는다.
+- 접속 정보는 `--dart-define-from-file=env/local.json`(publishable key). `env/*.json`은 커밋하지 않는다.
+- 테스트: 순수 규칙(필터·통계·단계 날짜) 단위, Notifier는 `ProviderContainer.test`, 화면은 가짜 저장소(`test/helpers`) 흐름 테스트, 저장소는 로컬 Supabase 통합 테스트(꺼져 있으면 건너뜀).
 - 폴더: `lib/core/{storage,analytics,time,router,presentation}`, `lib/features/<기능>/{data,presentation}`.
   - `auth`: 로그인 상태, 앱 전체 수명.
-  - `postings`: 목록 + 필터. 필터 상태는 목록 화면이 가진다.
+  - `postings`: 목록 + 필터 + 통계 요약. 필터 상태는 목록 화면이 가진다. 공고 모델·저장소(`postings/data`)는 상세·등록도 같이 쓴다.
+    - 통계(`FunnelStats`)는 목록 위 요약만이라 따로 폴더를 두지 않았다.
   - `posting_detail`: 상세 + 단계 변경 + 이력. 공고 id마다 생긴다(family).
   - `posting_form`: 등록·수정 입력. 화면을 닫으면 사라진다.
 - 수명: Supabase 클라이언트·저장소는 `@Riverpod(keepAlive: true)`, 화면 Notifier는 `@riverpod`.
