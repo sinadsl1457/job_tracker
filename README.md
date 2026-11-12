@@ -52,5 +52,5 @@ flutter test                               # 로컬 Supabase가 켜져 있으면
 모든 테이블에 RLS: 본인 행만 읽고 쓴다. 정책은 `supabase/migrations/`에 있다.
 
 ## 기록
-- [docs/LEARNING.md](docs/LEARNING.md) — 웹·백엔드 개념과 결정 이유
+- [docs/LEARNING.md](docs/LEARNING.md) — 백엔드 기초편(1~5편)과 단계별 결정 이유
 - [docs/AI_LOG.md](docs/AI_LOG.md) — AI가 틀렸거나 방향을 바꾼 지점
