@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../features/auth/data/auth_providers.dart';
 import '../../features/auth/presentation/login_screen.dart';
+import '../../features/posting_detail/presentation/posting_detail_screen.dart';
 import '../../features/posting_form/presentation/posting_form_screen.dart';
 import '../../features/postings/presentation/postings_screen.dart';
 
@@ -37,6 +38,18 @@ GoRouter appRouter(Ref ref) {
           GoRoute(
             path: 'new',
             builder: (context, state) => const PostingFormScreen(),
+          ),
+          GoRoute(
+            path: ':id',
+            builder: (context, state) =>
+                PostingDetailScreen(postingId: state.pathParameters['id']!),
+            routes: [
+              GoRoute(
+                path: 'edit',
+                builder: (context, state) =>
+                    PostingFormScreen(postingId: state.pathParameters['id']),
+              ),
+            ],
           ),
         ],
       ),

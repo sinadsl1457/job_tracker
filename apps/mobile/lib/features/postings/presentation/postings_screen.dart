@@ -207,6 +207,7 @@ class _PostingTile extends StatelessWidget {
         ),
       ),
       trailing: StageChip(posting.stage),
+      onTap: () => context.push('${PostingsScreen.path}/${posting.id}'),
     );
   }
 }
