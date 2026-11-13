@@ -1,8 +1,20 @@
+/* 전체 공통 스타일. Flutter의 ThemeData. */
 @import "tailwindcss";
 
 :root {
+  /* 지금은 밝은 화면만 지원한다(어두운 화면 색은 아직 안 맞춤). */
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
+
+  /* 차트 색(데이터 시각화 기준 팔레트의 밝은 화면 값) */
+  --viz-surface: #fcfcfb;
+  --viz-series-1: #2a78d6; /* 막대 색(파랑 한 가지) */
+  --viz-series-1-hover: #256abf;
+  --viz-text-secondary: #52514e;
+  --viz-text-muted: #898781; /* 축 글자 */
+  --viz-grid: #e1e0d9; /* 가는 눈금선 */
+  --viz-baseline: #c3c2b7; /* 바닥선 */
 }
 
 @theme inline {
@@ -10,13 +22,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
