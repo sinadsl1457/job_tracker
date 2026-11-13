@@ -1,7 +1,7 @@
 # job_tracker — 구직 지원 관리 (Flutter 앱 + Next.js 웹 + Supabase)
 
 개인 포트폴리오. 내가 매일 쓰는 지원 관리 서비스이면서, 앱·웹·백엔드를 혼자 연결해 배포한 기록이다.
-나는 Flutter 4년 차, 웹·백엔드는 처음이다 → 웹·백엔드 결정은 `docs/LEARNING.md`에 기록한다.
+나는 Flutter 4년 차, 웹·백엔드는 처음이다 → 웹·백엔드 개념과 결정은 `docs/learning/`에 장(편)별로 기록한다(목차: `docs/learning/README.md`).
 
 ## 진행 방식
 - 단계 순서: 1 DB·RLS·로컬 Supabase → 2 Flutter → 3 Next.js + Vercel → 4 푸시 → 5 AI 공고 분석 → 6 CI/README.
@@ -17,7 +17,7 @@
 apps/mobile   Flutter
 apps/web      Next.js (3단계)
 supabase/     migrations, tests(pgTAP), scripts, functions(4·5단계), seed.sql
-docs/         LEARNING.md, AI_LOG.md
+docs/         learning/(backend·web·tools·decisions, 목차 README.md), AI_LOG.md
 ```
 
 ## DB 규칙
@@ -49,3 +49,11 @@ docs/         LEARNING.md, AI_LOG.md
 - initState·build에서 provider 상태를 바꾸지 않는다(처음 값은 family 인자로).
 - 시간은 `clockProvider`. 생성 파일(.g.dart, .freezed.dart)은 커밋한다.
 - Android·iOS 빌드 설정은 템플릿 기본값 유지.
+
+## 웹 (apps/web)
+- 공부용 레포라 웹 코드에는 줄마다 어느 기술의 문법·기능인지 꼬리표 주석을 단다(새 파일도 똑같이).
+  `[TS]` TypeScript 언어, `[React]` React 기능, `[JSX]` 화면 문법, `[Next]` Next.js 기능·규칙,
+  `[Supabase]` Supabase 패키지, `[Tailwind]` 스타일, `[웹]` 브라우저·HTML 기본 기능. Flutter·Dart 대응을 같이 적는다.
+- Next.js 16: middleware → `src/proxy.ts`, `cacheComponents` 켜짐 → 쿠키를 읽는 서버 컴포넌트는 `<Suspense>` 안에.
+  코드를 쓰기 전에 `node_modules/next/dist/docs/`의 해당 문서를 확인한다.
+- 커밋 전: `npm run lint`, `npx tsc --noEmit`, `npm run build`.

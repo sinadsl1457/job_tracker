@@ -7,7 +7,7 @@ AI가 틀렸거나 내가 방향을 바꾼 지점. 형식: 무엇이 틀렸나 /
 ### 방향 변경: dio를 빼고 supabase_flutter만 쓰기
 - **제안:** AI가 스택에서 dio를 빼자고 했다. 처음엔 "Flutter에서 dio는 거의 다 쓰는데, 실서비스 수준에 맞나?" 하고 의심했다.
 - **확인:** 백엔드 개발자가 만든 API를 부르는 상황과 Supabase를 쓰는 상황을 나눠서 비교했다. dio로 Supabase REST를 직접 부르면 토큰 갱신을 다시 만들어야 하고, 로그인 때문에 SDK도 결국 필요하다.
-- **결정:** supabase_flutter만 쓴다. 호출은 저장소 클래스 안에 가둬서 나중에 바꿀 수 있게 한다(`docs/LEARNING.md`).
+- **결정:** supabase_flutter만 쓴다. 호출은 저장소 클래스 안에 가둬서 나중에 바꿀 수 있게 한다(`docs/learning/decisions/stage-1.md`).
 
 ### 틀림: 최신 Riverpod 버전이 최소 Flutter(3.38)에서 설치되지 않음
 - **틀린 것:** 처음 `pub add`에서 최신 범위(`riverpod_annotation ^4.0.3`, `json_annotation ^4.12.0`)를 그대로 박았다. 전역 메모의 "flutter_riverpod 3.4"도 3.38에서는 안 된다.
