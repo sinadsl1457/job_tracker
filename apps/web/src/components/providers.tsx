@@ -1,6 +1,7 @@
 // [Next] TanStack Query는 브라우저에서 돌아서 클라이언트 컴포넌트여야 한다.
 "use client";
 // 앱 전체에 TanStack Query 창고를 깔아 둔다. Flutter의 main()에서 ProviderScope로 감싸는 것과 같다.
+// layout.tsx가 쓰는 공용 부품이라 src/components/에 둔다.
 
 // [React] QueryClient = 불러온 데이터를 보관하는 창고, QueryClientProvider = 그 창고를 아래 화면들에 나눠 주는 부품
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

@@ -17,7 +17,7 @@ import {
 } from "@/lib/stats/funnel";
 import { createClient } from "@/lib/supabase/server"; // [Supabase] 서버용 (쿠키의 출입증 사용)
 
-import { AppHeader } from "../app-header";
+import { AppHeader } from "@/components/app-header";
 
 import { WeeklyChart } from "./weekly-chart";
 

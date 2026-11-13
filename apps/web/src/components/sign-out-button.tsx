@@ -1,7 +1,7 @@
 // [Next] 누르는 버튼이라 브라우저에서 돌아야 한다 → 클라이언트 컴포넌트
 "use client";
 // 로그아웃 버튼. Flutter 목록 화면 앱바의 로그아웃 아이콘.
-// [Next] 이름이 page.tsx가 아니라서 주소가 생기지 않는다. 다른 화면에 끼워 쓰는 부품일 뿐이다.
+// 여러 화면이 같이 쓰는 부품이라 src/components/에 둔다(주소가 없는 화면 조각).
 
 import { useRouter } from "next/navigation"; // [Next]
 

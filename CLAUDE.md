@@ -56,4 +56,8 @@ docs/         learning/(backend·web·tools·decisions, 목차 README.md), AI_LO
   `[Supabase]` Supabase 패키지, `[Tailwind]` 스타일, `[웹]` 브라우저·HTML 기본 기능. Flutter·Dart 대응을 같이 적는다.
 - Next.js 16: middleware → `src/proxy.ts`, `cacheComponents` 켜짐 → 쿠키를 읽는 서버 컴포넌트는 `<Suspense>` 안에.
   코드를 쓰기 전에 `node_modules/next/dist/docs/`의 해당 문서를 확인한다.
-- 커밋 전: `npm run lint`, `npx tsc --noEmit`, `npm run build`.
+- 폴더: `src/app/<주소>/`(page.tsx + 그 화면에서만 쓰는 부품), `src/components/`(여러 화면이 같이 쓰는 화면 조각), `src/lib/<기능>/`(데이터·타입·순수 규칙, 화면 없음). 한 화면에서만 쓰던 부품을 두 번째 화면이 쓰면 components로 옮긴다. import는 `@/`로.
+- 통계·필터 규칙은 앱(Dart)과 같은 정의·같은 테스트 경우를 유지한다(`lib/stats/funnel.ts` ↔ `funnel_stats.dart`, `lib/postings/filter.ts` ↔ `postings_filter.dart`).
+- 서버에서 날짜를 정할 때는 `Asia/Seoul`을 명시한다(서버는 UTC). 지금 시각을 쓰는 서버 컴포넌트는 `await connection()` 뒤에서.
+- 화면을 바꾸면 실제 화면과 개발 서버 기록(에러)까지 확인한다.
+- 커밋 전: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`.

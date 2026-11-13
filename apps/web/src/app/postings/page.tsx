@@ -6,7 +6,7 @@
 import { connection } from "next/server"; // [Next]
 import { Suspense } from "react"; // [React]
 
-import { AppHeader } from "../app-header";
+import { AppHeader } from "@/components/app-header";
 
 import { PostingsList } from "./postings-list";
 

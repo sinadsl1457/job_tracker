@@ -10,7 +10,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 // TanStack Query 창고(클라이언트 컴포넌트). 모든 화면을 이걸로 감싼다.
-import { Providers } from "./providers";
+import { Providers } from "@/components/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
