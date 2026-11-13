@@ -9,6 +9,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 // [Next] CSS 파일을 import하면 전체 화면에 적용된다. Flutter의 ThemeData를 앱 전체에 거는 것
 import "./globals.css";
 
+// TanStack Query 창고(클라이언트 컴포넌트). 모든 화면을 이걸로 감싼다.
+import { Providers } from "./providers";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,7 +42,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       {/* [Tailwind] min-h-full flex flex-col = 화면 높이를 꽉 채우는 Column */}
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* [React] Providers로 감싸야 그 안의 화면들이 TanStack Query를 쓸 수 있다. Flutter의 ProviderScope(child: App()) */}
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
