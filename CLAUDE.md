@@ -1,7 +1,7 @@
 # job_tracker — 구직 지원 관리 (Flutter 앱 + Next.js 웹 + Supabase)
 
 개인 포트폴리오. 내가 매일 쓰는 지원 관리 서비스이면서, 앱·웹·백엔드를 혼자 연결해 배포한 기록이다.
-나는 Flutter 4년 차, 웹·백엔드는 처음이다 → 웹·백엔드 개념과 결정은 `docs/learning/`에 장(편)별로 기록한다(목차: `docs/learning/README.md`).
+나는 Flutter 4년 차, 웹·백엔드는 처음이다.
 
 ## 진행 방식
 - 단계 순서: 1 DB·RLS·로컬 Supabase → 2 Flutter → 3 Next.js + Vercel → 4 푸시 → 5 AI 공고 분석 → 6 CI/README.
@@ -17,7 +17,7 @@
 apps/mobile   Flutter
 apps/web      Next.js (3단계)
 supabase/     migrations, tests(pgTAP), scripts, functions(4·5단계), seed.sql
-docs/         learning/(backend·web·tools·decisions, 목차 README.md), AI_LOG.md
+docs/         AI_LOG.md
 ```
 
 ## DB 규칙
