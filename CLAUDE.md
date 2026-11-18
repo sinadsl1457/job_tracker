@@ -61,3 +61,11 @@ docs/         learning/(backend·web·tools·decisions, 목차 README.md), AI_LO
 - 서버에서 날짜를 정할 때는 `Asia/Seoul`을 명시한다(서버는 UTC). 지금 시각을 쓰는 서버 컴포넌트는 `await connection()` 뒤에서.
 - 화면을 바꾸면 실제 화면과 개발 서버 기록(에러)까지 확인한다.
 - 커밋 전: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`.
+
+## 배포 (3단계)
+- 웹: Vercel, GitHub 연결(main push → 자동 배포), Root Directory `apps/web`, 지역 `icn1`(`apps/web/vercel.json`). 주소 https://job-tracker-beta-umber.vercel.app
+- DB: Supabase 클라우드 `ervajgtkjmfmdhujlqoy`(서울). 레포에 link 됨.
+  - Supabase CLI 3.x는 기본 대상이 로컬 → 클라우드는 `--remote`(`db push --remote`, 조회는 `db query --remote --read-only`). 결과의 `Target:` 줄을 먼저 본다.
+  - 스키마 변경은 로컬에서 마이그레이션 파일로 확인 → `supabase db push --remote --dry-run` → `db push --remote`. 시드는 클라우드에 올리지 않는다.
+- 접속 정보: 웹은 Vercel Environment Variables(바꾸면 재배포), 앱은 `apps/mobile/env/prod.json`(커밋 안 함). 둘 다 publishable key만.
+- 로그인: 내 계정 하나(대시보드에서 생성), 새 가입은 막음. Site URL·Redirect URLs = 배포 주소.
